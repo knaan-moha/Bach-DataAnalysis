@@ -1,6 +1,6 @@
 library(readxl)
-react_performance_final <-react_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /react_Create_NonDep_per_final.xlsx")
-blazor_performance_final <- blazor_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /blazor_Create_NonDep_per_final.xlsx")
+react_performance_final <-react_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /React_Page_Deployed_Per_final.xlsx")
+blazor_performance_final <- blazor_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /Blazor_PageLoad_Deployed_Per_final.xlsx")
 print(react_performance_final[3:22, 5])
 react_dataEdge<-as.numeric(unlist(react_performance_final[3:22, 5]))
 blazor_dataEdge<-as.numeric(unlist(blazor_performance_final[3:22, 5]))
