@@ -1,8 +1,9 @@
 library(readxl)
 
 
-react_performance <- react_performance_final <- read_excel("BachelorDocumantion /DataSets /react_performance_final.xlsx")
-blazor_performance <- blazor_performance_final <- read_excel("BachelorDocumantion /DataSets /blazor_performance_final.xlsx")
+react_performance <- react_performance_final_Deployed <- read_excel("BachelorDocumantion /DataSets /react_performance_final_Deployed.xlsx")
+
+blazor_performance <- blazor_performance_final_deployed <- read_excel("BachelorDocumantion /DataSets /blazor_performance_final_deployed.xlsx")
 
 
 
@@ -45,7 +46,7 @@ analyze_data_frame <- function(data_frame, framework_name) {
         print(sprintf("%s: p value = %s not normal", data_frame[2, x], formatted_p_value ))
         not_normal_count = not_normal_count + 1
       } else {
-        print(sprintf("%s: normal", data_frame[2, x]))
+        print(sprintf("%s: p value = %s normal", data_frame[2, x],  formatted_p_value))
         normal_count = normal_count + 1
       }
     }

@@ -1,20 +1,11 @@
 
 library(readxl)
 library(car)
+library(WRS2)
 
-react_data <-react_performance_final_Deployed <- read_excel("BachelorDocumantion /DataSets /react_performance_final_Deployed.xlsx")
-blazor_data <-  blazor_performance_final_deployed <- read_excel("BachelorDocumantion /DataSets /blazor_performance_final_deployed.xlsx")
+react_performance <-react_performance_final_Deployed <- read_excel("BachelorDocumantion /DataSets /react_performance_final_Deployed.xlsx")
+blazor_performance <-  blazor_performance_final_deployed <- read_excel("BachelorDocumantion /DataSets /blazor_performance_final_deployed.xlsx")
 
-print(react_data)
-
-not_normal_count=0
-not_available_count=0
-normal_count=0
-identical_count=0
-
-
-
-# Assume your data frame is named my_data
 dimensions <- dim(react_performance) # Returns a vector: [number of rows, number of columns]
 num_columns <- dimensions[2]
 test_variance<- function(blazor_p_value, react_p_value, blazor_data, react_data, x, data_frame){
@@ -45,14 +36,19 @@ test_variance<- function(blazor_p_value, react_p_value, blazor_data, react_data,
     print(sprintf("%s: ", data_frame[2, x]))
     
     yuen_result <- yuen(formula=performance ~ framework, data = data)
+    yuen_result_bootstrapped <- yuenbt(formula=performance ~ framework, data = data, tr = 0.2, nboot=1000)
+  
     if (p_val_levenes<0.05){
       print("The variances are not equal")
     }
     else {
       print("The variances are equal")
+      
     }
-    print(sprintf("Levenes test= %s", p_val_levenes))
-    print(sprintf("Robust t test= %s", yuen_result$p.value))
+  
+    print(sprintf("Levenes test= %.3e", p_val_levenes))
+    print(sprintf("Robust t test= %.3e", yuen_result$p.value))
+    print(sprintf("Bootstrapped t test= %s", yuen_result_bootstrapped$p.value))
     print(" ")
     
     
@@ -89,13 +85,13 @@ p_val_normality<-function(data_frame, x){
   else {
     p_value<-shapiro.test(numeric_column_with_metic)$p.value
     if (p_value<0.05) {
-      print(sprintf("%s: p value= %s, not normal", data_frame[2, x], p_value))
+      #print(sprintf("%s: p value= %s, not normal", data_frame[2, x], p_value))
       not_normal_count=not_normal_count+1
       return(p_value)
       
       
     } else {
-      print(sprintf("%s: p value= %s, normal", data_frame[2, x], p_value))
+      #print(sprintf("%s: p value= %s, normal", data_frame[2, x], p_value))
       normal_count=normal_count+
         return(p_value)
     }

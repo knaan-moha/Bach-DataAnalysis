@@ -1,10 +1,12 @@
 library(readxl)
-react_performance_final <-react_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /React_Create_Dep_Per_final.xlsx")
-blazor_performance_final <- blazor_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /Blazor_Create_Dep_Per_final.xlsx")
-print(react_performance_final[3:22, 5])
+react_performance_final <-react_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /React_Update_Dep_Perf_final.xlsx")
+blazor_performance_final <- blazor_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /Blazor_Update_Dep_Perf_final.xlsx")
+
+#print(react_performance_final[3:22, 5])
 react_dataEdge<-as.numeric(unlist(react_performance_final[3:22, 5]))
 blazor_dataEdge<-as.numeric(unlist(blazor_performance_final[3:22, 5]))
 data <- data.frame(
+  
   performanceEdge = c(blazor_dataEdge, react_dataEdge),
   frameworkEdge = factor(rep(c("Blazor", "React"), each = 20))
   
@@ -12,7 +14,7 @@ data <- data.frame(
 print(data)
 
 
-print(react_performance_final[3:22, 10])
+#print(react_performance_final[3:22, 10])
 react_dataChrome<-as.numeric(unlist(react_performance_final[3:22, 10]))
 blazor_dataChrome<-as.numeric(unlist(blazor_performance_final[3:22, 10]))
 dataChrome <- data.frame(
@@ -24,7 +26,7 @@ print(dataChrome)
 
 
 
-print(react_performance_final[3:22, 15])
+#print(react_performance_final[3:22, 15])
 react_dataBrave<-as.numeric(unlist(react_performance_final[3:22, 15]))
 blazor_dataBrave<-as.numeric(unlist(blazor_performance_final[3:22, 15]))
 dataBrave <- data.frame(

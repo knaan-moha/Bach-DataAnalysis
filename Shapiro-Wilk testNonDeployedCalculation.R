@@ -45,7 +45,7 @@ analyze_data_frame <- function(data_frame, framework_name) {
         print(sprintf("%s: p value = %s not normal", data_frame[2, x], formatted_p_value ))
         not_normal_count = not_normal_count + 1
       } else {
-        print(sprintf("%s: normal", data_frame[2, x]))
+        print(sprintf("%s: p value = %s normal", data_frame[2, x],  formatted_p_value))
         normal_count = normal_count + 1
       }
     }
