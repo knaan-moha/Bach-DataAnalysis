@@ -3,17 +3,17 @@
   library(car)
   library(WRS2)
   
-  react_performance <- react_performance_final <- read_excel("BachelorDocumantion /DataSets /react_performance_final.xlsx")
-  blazor_performance <- blazor_performance_final <- read_excel("BachelorDocumantion /DataSets /blazor_performance_final.xlsx")
-  
+
+  react_performance <-React_Performance_UserFlow_NonDeployed <- read_excel("BachelorDocumantion /UserFlowDataSets /React_Performance_UserFlow_NonDeployed.xlsx")
+  blazor_performance <- Blazor_Performance_UserFlow_NonDeployed <- read_excel("BachelorDocumantion /UserFlowDataSets /Blazor_Performance_UserFlow_NonDeployed.xlsx")
   
   dimensions <- dim(react_performance) # Returns a vector: [number of rows, number of columns]
   num_columns <- dimensions[2]
   test_variance<- function(blazor_p_value, react_p_value, blazor_data, react_data, x, data_frame){
     
     
-    if ((x - 1) %% 5 == 0){
-      if ((x - 1) %% 15 == 0) {
+    if ((x - 1) %% 3 == 0){
+      if ((x - 1) %% 9 == 0) {
         print(" ")
         print(" ")
         print(sprintf("%s ", colnames(data_frame)[x]))
@@ -112,8 +112,8 @@
       
       
       
-      if ((x - 1) %% 5 == 0){
-        if ((x - 1) %% 15 == 0) {
+      if ((x - 1) %% 3 == 0){
+        if ((x - 1) %% 9 == 0) {
           print(" ")
           print(" ")
           print(sprintf("%s ", colnames(data_frame)[x]))
@@ -138,8 +138,8 @@
       
       
       
-      if ((x - 1) %% 5 == 0){
-        if ((x - 1) %% 15 == 0) {
+      if ((x - 1) %% 3 == 0){
+        if ((x - 1) %% 9 == 0) {
           print(" ")
           print(" ")
           print(sprintf("%s ", colnames(data_frame2)[x]))

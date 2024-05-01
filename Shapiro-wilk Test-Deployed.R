@@ -1,11 +1,10 @@
 library(readxl)
 
 
-react_performance <- react_performance_final_Deployed <- read_excel("BachelorDocumantion /DataSets /react_performance_final_Deployed.xlsx")
-
-blazor_performance <- blazor_performance_final_deployed <- read_excel("BachelorDocumantion /DataSets /blazor_performance_final_deployed.xlsx")
 
 
+react_performance  <-React_Performance_UserFlow_Deployed <- read_excel("BachelorDocumantion /UserFlowDataSets /React_Performance_UserFlow_Deployed.xlsx")
+blazor_performance <- Blazor_Performance_UserFlow_Deployed <- read_excel("BachelorDocumantion /UserFlowDataSets /Blazor_Performance_UserFlow_Deployed.xlsx")
 
 analyze_data_frame <- function(data_frame, framework_name) {
   dimensions <- dim(data_frame) # Returns a vector: [number of rows, number of columns]
@@ -20,8 +19,8 @@ analyze_data_frame <- function(data_frame, framework_name) {
   identical_count=0
   
   for (x in 1:num_columns) {
-    if ((x - 1) %% 5 == 0) {
-      if ((x - 1) %% 15 == 0) {
+    if ((x - 1) %% 3 == 0) {
+      if ((x - 1) %% 9 == 0) {
         print(" ")
         print(" ")
         print(sprintf("%s ", colnames(data_frame)[x]))

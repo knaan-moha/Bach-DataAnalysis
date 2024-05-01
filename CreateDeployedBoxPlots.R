@@ -1,10 +1,10 @@
 library(readxl)
-react_performance_final <-react_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /React_Create_Dep_Perf_final.xlsx")
-blazor_performance_final <- blazor_Create_NonDep_per_final <- read_excel("BachelorDocumantion /DataSets /Blazor_Create_Dep_Per_final.xlsx")
+react_performance_final <-react_create_userflow_Deployed <- read_excel("BachelorDocumantion /UserFlowDataSets /react_create_userflow_Deployed.xlsx")
+blazor_performance_final <- blazor_Create_UserFlow_Deployed <- read_excel("BachelorDocumantion /UserFlowDataSets /blazor_Create_UserFlow_Deployed.xlsx")
 
 #print(react_performance_final[3:22, 5])
-react_dataEdge<-as.numeric(unlist(react_performance_final[3:22, 5]))
-blazor_dataEdge<-as.numeric(unlist(blazor_performance_final[3:22, 5]))
+react_dataEdge<-as.numeric(unlist(react_performance_final[3:22, 3]))
+blazor_dataEdge<-as.numeric(unlist(blazor_performance_final[3:22, 3]))
 data <- data.frame(
   performanceEdge = c(blazor_dataEdge, react_dataEdge),
   frameworkEdge = factor(rep(c("Blazor", "React"), each = 20))
@@ -14,8 +14,8 @@ print(data)
 
 
 #print(react_performance_final[3:22, 10])
-react_dataChrome<-as.numeric(unlist(react_performance_final[3:22, 10]))
-blazor_dataChrome<-as.numeric(unlist(blazor_performance_final[3:22, 10]))
+react_dataChrome<-as.numeric(unlist(react_performance_final[3:22, 6]))
+blazor_dataChrome<-as.numeric(unlist(blazor_performance_final[3:22, 6]))
 dataChrome <- data.frame(
   performanceChrome = c(blazor_dataChrome, react_dataChrome),
   frameworkChrome = factor(rep(c("Blazor", "React"), each = 20))
@@ -26,8 +26,8 @@ print(dataChrome)
 
 
 #print(react_performance_final[3:22, 15])
-react_dataBrave<-as.numeric(unlist(react_performance_final[3:22, 15]))
-blazor_dataBrave<-as.numeric(unlist(blazor_performance_final[3:22, 15]))
+react_dataBrave<-as.numeric(unlist(react_performance_final[3:22, 9]))
+blazor_dataBrave<-as.numeric(unlist(blazor_performance_final[3:22, 9]))
 dataBrave <- data.frame(
   performanceBrave = c(blazor_dataBrave, react_dataBrave),
   frameworkBrave = factor(rep(c("Blazor", "React"), each = 20))
@@ -54,7 +54,7 @@ boxplot(performanceEdge~ frameworkEdge,
         main=expression(bold("Edge")),
         
         
-        ylab="Speed Index (ms)",
+        ylab="CLS",
         col=col_fill, 
         border = col_fill2, 
         xlab = "", 
@@ -63,6 +63,7 @@ boxplot(performanceEdge~ frameworkEdge,
         whiskcol = c("black", "black"),
         staplecol =  c("black", "black"),
         lwd =1.2
+        
         
         
         
@@ -75,7 +76,7 @@ boxplot(performanceChrome~frameworkChrome,
         main=expression(bold("Chrome")),
         
         
-        ylab = "Speed Index (ms)",
+        ylab = "CLS",
         col=col_fill, 
         border = col_fill2, 
         xlab = "", 
@@ -97,7 +98,7 @@ boxplot(performanceBrave~frameworkBrave,
         data=dataBrave,
         main=expression(bold("Brave")),
         
-        ylab="Speed Index (ms)",
+        ylab="CLS",
         col= col_fill, 
         border= col_fill2,
         xlab = "", 

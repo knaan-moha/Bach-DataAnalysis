@@ -1,9 +1,9 @@
 library(readxl)
 
 
-react_performance <- react_performance_final <- read_excel("BachelorDocumantion /DataSets /react_performance_final.xlsx")
-blazor_performance <- blazor_performance_final <- read_excel("BachelorDocumantion /DataSets /blazor_performance_final.xlsx")
 
+react_performance <-React_Performance_UserFlow_NonDeployed <- read_excel("BachelorDocumantion /UserFlowDataSets /React_Performance_UserFlow_NonDeployed.xlsx")
+blazor_performance<- Blazor_Performance_UserFlow_NonDeployed <- read_excel("BachelorDocumantion /UserFlowDataSets /Blazor_Performance_UserFlow_NonDeployed.xlsx")
 
 
 analyze_data_frame <- function(data_frame, framework_name) {
@@ -19,8 +19,8 @@ analyze_data_frame <- function(data_frame, framework_name) {
   identical_count=0
   
   for (x in 1:num_columns) {
-    if ((x - 1) %% 5 == 0) {
-      if ((x - 1) %% 15 == 0) {
+    if ((x - 1) %% 3 == 0) {
+      if ((x - 1) %% 9 == 0) {
         print(" ")
         print(" ")
         print(sprintf("%s ", colnames(data_frame)[x]))

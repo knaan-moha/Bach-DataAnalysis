@@ -1,8 +1,7 @@
 library(readxl)
 
-react_data_frame <-react_performance_final_Deployed <- read_excel("BachelorDocumantion /DataSets /react_performance_final_Deployed.xlsx")
-blazor_data_frame <- blazor_performance_final_deployed <- read_excel("BachelorDocumantion /DataSets /blazor_performance_final_deployed.xlsx")
-
+react_data_frame <-React_Performance_UserFlow_NonDeployed <- read_excel("BachelorDocumantion /UserFlowDataSets /React_Performance_UserFlow_NonDeployed.xlsx")
+blazor_data_frame <- Blazor_Performance_UserFlow_NonDeployed <- read_excel("BachelorDocumantion /UserFlowDataSets /Blazor_Performance_UserFlow_NonDeployed.xlsx")
 check_standard_deviation <- function(react_data_frame, blazor_data_frame) {
   dimensions <- dim(react_data_frame)
   num_columns <- dimensions[2]
@@ -11,8 +10,8 @@ check_standard_deviation <- function(react_data_frame, blazor_data_frame) {
   
   for (x in 1:num_columns) {
  
-    if ((x - 1) %% 5 == 0) {
-      if ((x - 1) %% 15 == 0) {
+    if ((x - 1) %% 3 == 0) {
+      if ((x - 1) %% 9 == 0) {
         print(" ")
         print(" ")
       

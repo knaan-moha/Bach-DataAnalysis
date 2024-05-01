@@ -54,15 +54,15 @@ boxplot(performanceEdge~ frameworkEdge,
         main=expression(bold("Edge")),
         
         
-        ylab="Speed Index (ms) ",
+        ylab="Speed Index (ms)  ",
         col=col_fill, 
-        border= col_fill2, 
+        border = col_fill2, 
         xlab = "", 
         boxwex = 0.7,
-        whiskcol = c("black", "black"), 
-        whisklwd = 2, 
+        whisklwd = 2 , 
+        whiskcol = c("black", "black"),
+        staplecol =  c("black", "black"),
         lwd =1.2
-        
         
         
 )
@@ -74,7 +74,7 @@ boxplot(performanceChrome~frameworkChrome,
         main=expression(bold("Chrome")),
         
         
-        ylab = "Speed Index (ms) ",
+        ylab = "Speed Index (ms)",
         col=col_fill, 
         border = col_fill2, 
         xlab = "", 

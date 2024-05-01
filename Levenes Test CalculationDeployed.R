@@ -3,16 +3,16 @@ library(readxl)
 library(car)
 library(WRS2)
 
-react_performance <-react_performance_final_Deployed <- read_excel("BachelorDocumantion /DataSets /react_performance_final_Deployed.xlsx")
-blazor_performance <-  blazor_performance_final_deployed <- read_excel("BachelorDocumantion /DataSets /blazor_performance_final_deployed.xlsx")
+react_performance <-React_Performance_UserFlow_Deployed <- read_excel("BachelorDocumantion /UserFlowDataSets /React_Performance_UserFlow_Deployed.xlsx")
+blazor_performance <- Blazor_Performance_UserFlow_Deployed <- read_excel("BachelorDocumantion /UserFlowDataSets /Blazor_Performance_UserFlow_Deployed.xlsx")
 
 dimensions <- dim(react_performance) # Returns a vector: [number of rows, number of columns]
 num_columns <- dimensions[2]
 test_variance<- function(blazor_p_value, react_p_value, blazor_data, react_data, x, data_frame){
   
   
-  if ((x - 1) %% 5 == 0){
-    if ((x - 1) %% 15 == 0) {
+  if ((x - 1) %% 3 == 0){
+    if ((x - 1) %% 9 == 0) {
       print(" ")
       print(" ")
       print(sprintf("%s ", colnames(data_frame)[x]))
@@ -36,8 +36,7 @@ test_variance<- function(blazor_p_value, react_p_value, blazor_data, react_data,
     print(sprintf("%s: ", data_frame[2, x]))
     
     yuen_result <- yuen(formula=performance ~ framework, data = data)
-    yuen_result_bootstrapped <- yuenbt(formula=performance ~ framework, data = data, tr = 0.2, nboot=1000)
-  
+    yuen_result_bootstrapped <- yuenbt(formula=performance ~ framework, data = data,  nboot=1000)
     if (p_val_levenes<0.05){
       print("The variances are not equal")
     }
@@ -45,7 +44,7 @@ test_variance<- function(blazor_p_value, react_p_value, blazor_data, react_data,
       print("The variances are equal")
       
     }
-  
+    
     print(sprintf("Levenes test= %.3e", p_val_levenes))
     print(sprintf("Robust t test= %.3e", yuen_result$p.value))
     print(sprintf("Bootstrapped t test= %s", yuen_result_bootstrapped$p.value))
@@ -112,8 +111,8 @@ test_normality<-function(data_frame, data_frame2){
     
     
     
-    if ((x - 1) %% 5 == 0){
-      if ((x - 1) %% 15 == 0) {
+    if ((x - 1) %% 3 == 0){
+      if ((x - 1) %% 9 == 0) {
         print(" ")
         print(" ")
         print(sprintf("%s ", colnames(data_frame)[x]))
@@ -138,8 +137,8 @@ test_normality<-function(data_frame, data_frame2){
     
     
     
-    if ((x - 1) %% 5 == 0){
-      if ((x - 1) %% 15 == 0) {
+    if ((x - 1) %% 3 == 0){
+      if ((x - 1) %% 9 == 0) {
         print(" ")
         print(" ")
         print(sprintf("%s ", colnames(data_frame2)[x]))
