@@ -5,7 +5,7 @@ library(readxl)
 
 react_performance  <-React_Performance_UserFlow_Deployed <- read_excel("BachelorDocumantion /UserFlowDataSets /React_Performance_UserFlow_Deployed.xlsx")
 blazor_performance <- Blazor_Performance_UserFlow_Deployed <- read_excel("BachelorDocumantion /UserFlowDataSets /Blazor_Performance_UserFlow_Deployed.xlsx")
-
+View(blazor_performance)
 analyze_data_frame <- function(data_frame, framework_name) {
   dimensions <- dim(data_frame) # Returns a vector: [number of rows, number of columns]
   
