@@ -37,13 +37,7 @@ test_variance<- function(blazor_p_value, react_p_value, blazor_data, react_data,
     
     yuen_result <- yuen(formula=performance ~ tech, data = data)
     yuen_result_bootstrapped <- yuenbt(formula=performance ~ tech, data = data,  nboot=1000)
-    if (p_val_levenes<0.05){
-      print("The variances are not equal")
-    }
-    else {
-      print("The variances are equal")
-      
-    }
+  
     
     print(sprintf("Levenes test= %.3e", p_val_levenes))
     print(sprintf("Robust t test= %.3e", yuen_result$p.value))

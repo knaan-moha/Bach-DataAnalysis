@@ -38,13 +38,7 @@
       
       yuen_result <- yuen(formula=performance ~ tech, data = data)
       yuen_result_bootstrapped <- yuenbt(formula=performance ~ tech, data = data,  nboot=1000)
-      if (p_val_levenes<0.05){
-        print("The variances are not equal")
-      }
-      else {
-        print("The variances are equal")
-        
-      }
+    
       
       print(sprintf("Levenes test= %.3e", p_val_levenes))
       print(sprintf("Robust t test= %.3e", yuen_result$p.value))
